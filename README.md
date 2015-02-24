@@ -1,1 +1,1 @@
-# studyr
+We want to create a platform through which students would be able to convene for study groups. The platform will be a smartphone application that will show profiles of other students in the area, filtered by class, that the user will be able to either favorite, or ignore. If two users favorite each other respectively, they are both notified, so they can plan to meet up. After a study session occurs, each user has the option to rate the other on their easiness/helpfulness/clarity, which is then displayed on that users profile anonymously.
