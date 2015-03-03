@@ -13,16 +13,21 @@
     // no instance vars here
 }
 
-@property (copy) NSString* model;
+//@property (copy) NSString* model;
 
 // all users have a name, rating and classes
 // some users have photos, blurbs
+
+- (id) init;
+- (id) initBasic:(NSString*) name;
+- (id) initWithAll:(NSString*) name: (NSArray*) classes: (NSString*) major: (int) rating;
 
 // getters
 - (NSString*) getName;
 - (int) getRating;
 - (NSArray*) getClasses;
 - (NSString*) getMajor;
+- (NSString*) printUser;
 
 
 // setters
