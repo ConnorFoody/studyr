@@ -15,6 +15,10 @@
 		7D6C09AD1A9D2325009B8A67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C09AC1A9D2325009B8A67 /* Images.xcassets */; };
 		7D6C09B01A9D2325009B8A67 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C09AE1A9D2325009B8A67 /* LaunchScreen.xib */; };
 		7D6C09BC1A9D2325009B8A67 /* StudyrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C09BB1A9D2325009B8A67 /* StudyrTests.m */; };
+		8C16D4121AA53CB900E2B89E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C16D4111AA53CB900E2B89E /* User.m */; };
+		8C16D4131AA53CB900E2B89E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C16D4111AA53CB900E2B89E /* User.m */; };
+		8C16D4161AA544AB00E2B89E /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C16D4151AA544AB00E2B89E /* Group.m */; };
+		8C16D4171AA544AB00E2B89E /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C16D4151AA544AB00E2B89E /* Group.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 		7D6C09B51A9D2325009B8A67 /* StudyrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6C09BA1A9D2325009B8A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D6C09BB1A9D2325009B8A67 /* StudyrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyrTests.m; sourceTree = "<group>"; };
+		8C16D4111AA53CB900E2B89E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		8C16D4141AA53D5300E2B89E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8C16D4151AA544AB00E2B89E /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		8C16D4181AA544B800E2B89E /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,10 @@
 				7D6C09AC1A9D2325009B8A67 /* Images.xcassets */,
 				7D6C09AE1A9D2325009B8A67 /* LaunchScreen.xib */,
 				7D6C099C1A9D2325009B8A67 /* Supporting Files */,
+				8C16D4111AA53CB900E2B89E /* User.m */,
+				8C16D4141AA53D5300E2B89E /* User.h */,
+				8C16D4151AA544AB00E2B89E /* Group.m */,
+				8C16D4181AA544B800E2B89E /* Group.h */,
 			);
 			path = Studyr;
 			sourceTree = "<group>";
@@ -224,8 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C16D4121AA53CB900E2B89E /* User.m in Sources */,
 				7D6C09A21A9D2325009B8A67 /* AppDelegate.m in Sources */,
 				7D6C09A51A9D2325009B8A67 /* MasterViewController.m in Sources */,
+				8C16D4161AA544AB00E2B89E /* Group.m in Sources */,
 				7D6C099F1A9D2325009B8A67 /* main.m in Sources */,
 				7D6C09A81A9D2325009B8A67 /* DetailViewController.m in Sources */,
 			);
@@ -235,6 +249,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C16D4171AA544AB00E2B89E /* Group.m in Sources */,
+				8C16D4131AA53CB900E2B89E /* User.m in Sources */,
 				7D6C09BC1A9D2325009B8A67 /* StudyrTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +436,7 @@
 				7D6C09C11A9D2325009B8A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D6C09C21A9D2325009B8A67 /* Build configuration list for PBXNativeTarget "StudyrTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +445,7 @@
 				7D6C09C41A9D2325009B8A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
