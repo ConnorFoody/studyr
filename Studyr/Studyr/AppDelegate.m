@@ -34,11 +34,11 @@
         User* u_basic = [[User alloc] init];
         NSLog(@"basic user: %@\n", u_basic.printUser);
         
-        User* u_mid = [[User alloc] initBasic:@"connor"];
+        User* u_mid = [[User alloc] initBasic:1: @"connor"];
         NSLog(@"mid user: %@\n", u_mid.printUser);
         
         
-        User* u_full = [[User alloc] initWithAll:@"connor" :[NSArray arrayWithObjects:@"one", @"two", nil] :@"CS" :5];
+        User* u_full = [[User alloc] initWithAll:1:@"connor" :[NSArray arrayWithObjects:@"one", @"two", nil] :@"CS" :5];
         NSLog(@"fulll user: %@\n", u_full.printUser);
         
         NSLog(@"done with user alloc tests\n");
@@ -47,11 +47,11 @@
         Group* g_basic = [[Group alloc] init];
         NSLog(@"basic group: %@\n", g_basic.printGroup);
         
-        Group* g_mid = [[Group alloc] initFull:@"very study": nil : @"make all the studyz"];
+        Group* g_mid = [[Group alloc] initFull:1:@"very study": nil : @"make all the studyz"];
         NSLog(@"mid group: %@\n", g_mid.printGroup);
         
         
-        Group* g_full = [[Group alloc] initFull:@"mas estewdy-os" :[NSArray arrayWithObjects:u_basic, u_mid, u_full, u_full, nil]:@"make the etudiars"];
+        Group* g_full = [[Group alloc] initFull:1:@"mas estewdy-os" :[NSArray arrayWithObjects:u_basic, u_mid, u_full, u_full, nil]:@"make the etudiars"];
         NSLog(@"full group: %@\n", g_full.printGroup);
         NSLog(@"All done testing group stuff\n");
     }
@@ -60,13 +60,13 @@
     @autoreleasepool {
         // try adding and removing classes
         NSLog(@"\n\ntesting add and remove user class\n\n");
-        User* u_full = [[User alloc] initWithAll:@"connor" :[NSArray arrayWithObjects:@"one", @"two", nil] :@"CS" :5];
+        User* u_full = [[User alloc] initWithAll:1:@"connor" :[NSArray arrayWithObjects:@"one", @"two", nil] :@"CS" :5];
         [u_full removeClass:@"two"];
         [u_full removeClass:@"three"];
         [u_full addClass:@"three"];
         NSLog(@"two classes: %@\n", u_full.printUser);
         
-        User* u_other = [[User alloc] initBasic:@"other"];
+        User* u_other = [[User alloc] initBasic:1:@"other"];
         [u_other addClass:@"four"];
         [u_other setRating:9];
         

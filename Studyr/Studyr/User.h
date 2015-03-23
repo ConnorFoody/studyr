@@ -18,9 +18,9 @@
 // all users have a name, rating and classes
 // some users have photos, blurbs
 
-- (id) init;
-- (id) initBasic:(NSString*) name;
-- (id) initWithAll:(NSString*) name: (NSArray*) classes: (NSString*) major: (int) rating;
+- (id) init : (int) id_; // everything needs and ID
+- (id) initBasic: (int) id_ :(NSString*) name;
+- (id) initWithAll: (int)id_ :(NSString*)name :(NSArray*)classes :(NSString*)major :(int) rating;
 
 // getters
 - (NSString*) getName;
@@ -28,6 +28,7 @@
 - (NSArray*) getClasses;
 - (NSString*) getMajor;
 - (NSString*) printUser;
+- (int) getID;
 
 
 // setters
@@ -37,6 +38,8 @@
 - (void) addClass:(NSString*) subject;
 - (void) removeClass:(NSString*) subject;
 - (void) setMajor:(NSString*) major;
+- (void) setID: (int) id_;
+
 
 @end
 

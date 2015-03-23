@@ -14,15 +14,16 @@
     int m_rating;
     NSMutableArray* m_classes;
     NSString* m_major;
+    int ID;
 }
 
-- (id) init{
-    return [self initBasic:@""];
+- (id) init: (int) id_ {
+    return [self initBasic:id_ :@""];
 }
-- (id) initBasic:(NSString *)name{
-    return [self initWithAll:name :nil : @"" : 0];
+- (id) initBasic: (int) id_ : (NSString *)name{
+    return [self initWithAll:id_: name :nil : @"" : 0];
 }
-- (id) initWithAll:(NSString *)name :(NSArray *)classes :(NSString *)major :(int)rating{
+- (id) initWithAll: (int) id_ : (NSString *)name :(NSArray *)classes :(NSString *)major :(int)rating{
     self = [super init];
     if(self){
         m_name = [name copy];
@@ -35,6 +36,7 @@
         }
         m_major = [major copy];
         m_rating = rating;
+        ID = id_;
     }
     return self;
 }
@@ -67,6 +69,9 @@
                                                             m_rating];
 }
 
+- (int) getID{
+    return ID;
+}
 // setters
 
 - (void) setName:(NSString *)name{
@@ -103,8 +108,7 @@
     m_major = major;
 }
 
-
-
-
-
+- (void) setID:(int)id_{
+    ID = id_;
+}
 @end

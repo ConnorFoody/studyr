@@ -13,20 +13,21 @@
     NSString* m_name;
     NSMutableArray* m_members;
     NSString* m_description;
+    int ID;
 }
 
-- (id) init{
-    return [self initBasic:@"" :nil];
+- (id) init : (int) id_{
+    return [self initBasic: id_ : @"" :nil];
 }
 
-- (id) initBasic:(NSString *)name :(User *)user{
+- (id) initBasic: (int) id_ :(NSString *)name :(User *)user{
     if(user == nil){
-        return [self initFull:name:nil:@""];
+        return [self initFull: id_ :name:nil:@""];
     }
-    return [self initFull:name :[NSArray arrayWithObject:user] :@""];
+    return [self initFull: id_ : name :[NSArray arrayWithObject:user] :@""];
 }
 
-- (id) initFull:(NSString *)name :(NSArray *)members :(NSString *)description{
+- (id) initFull: (int) id_ :(NSString *)name :(NSArray *)members :(NSString *)description{
     self = [super init];
     if(self){
         m_name = [name copy];
@@ -38,6 +39,7 @@
             m_members = [members mutableCopy];
         }
         m_description = [description copy];
+        ID = id_;
     }
     return self;
 }
@@ -75,6 +77,10 @@
                                                                                         m_description,
                                                                                         members,
                                                                                         self.getRating];
+}
+
+- (int) getID{
+    return ID;
 }
 
 - (void) addMember:(User *)member{
@@ -119,5 +125,9 @@
 
 - (void) setDescription:(NSString *)description{
     m_description = description;
+}
+
+- (void) setID:(int)id_{
+    ID = id_;
 }
 @end
