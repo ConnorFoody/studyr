@@ -263,7 +263,7 @@ class MyDB extends SQLLib {
             return $this->fetchArray($result)[0];
         }
     }
-
+ƒ
     /**
      *
      * @param string $name as user name
@@ -271,41 +271,53 @@ class MyDB extends SQLLib {
      *
      */
     function createUser($name, $classes) {
+        // maybe hardcode the max number of classes? can we make a query-able cell?
         // TODO: make all data into an array + fill in what isn't there then feed it to createIndex
+        $to_add = array('username' => $name, 'class' => $classes, 'rating' => 0);
+        addEntry($to_add, 'users');
     }
 
     /**
      *
      * @param string $name as the name of the group
-     * @param string $member as person starting the group
+     * @param int $user_id as person starting the group
      * @param string $description as group description
-     * @param string array $filter_settings as filter settings [colName => dataValue]
+     * @param string $filter_settings as class to filter by
      */
-    function createGroup($name, $members, $description, $filterSettings){
-        // TODO: make data into an array then feed it into createIndex
-        // Add user/group pair to User in Group 
+    function createGroup($name, $user_id, $description, $filterSettings){
+        // TODO: let it filter by other things 
+        $to_add = array('groupname' => $name, 'description' => $description, 
+                            'class' => $filterSettings);
+        addEntry($to_add, 'groups');
+
+        // get group ID so we can add group to user_in_group
+        $group_id = getGroupId($name);
+        $group_user_pair = array('user_id' => $user_id, 'group_id' => $group_id);
+        addEntry($group_user_pair, 'user_in_group');
     }
 
     /**
      *
-     * @param string $username name of user to remove
+     * @param int $user_id name of user to remove
      *
      */
-    function removeUser($username){
-        // TODO: check that user is in table, remove if we can
-        // also remove from UserInGroup
-        // will this create issues if the user is in a group?
+    function removeUser($user_id){
+        // TODO: check that the user is in the table, check if its in any groups
+        // leave this for now, we can just use drop table
+
     }
 
     /** 
      *
      * @param string $groupname name of group to remove
      */
-    function removeGroup($groupname){
+    function removeGroup($group_id){
         // TODO: check that the group is in the table, remove if we can
         // if users hold group, then we will need to remove them from the group
         // make sure to remove everything from user in group
 
+        deleteEntry($group_id, 'groups');
+        
     }
 
     /**
@@ -317,6 +329,15 @@ class MyDB extends SQLLib {
         $result = $this->query('SELECT rating FROM users WHERE id=' . $user_id);
         $rating = $this->fetchArray($results)[0];
         return $rating;
+    }
+
+    /**
+     *
+     * @param int $user_id 
+     * @param int $rating   
+     */
+    function setUserRating($user_id, $rating){
+        changeCellWithRow('users', 'rating', $user_id, $rating);
     }
 
     /**
@@ -333,10 +354,35 @@ class MyDB extends SQLLib {
     /**
      * 
      * @param int $group_id
-     * @return string of comma seperated
+     * @return array of people in the group
      */
     function getGroupMembers($group_id){
         // get this info from the UserInGroup table
+        // do we need to create another get function to get user
+        $result = $this->query('SELECT user_id FROM user_in_group WHERE group_id=' . $group_id);
+        $members = $this->fetchArray($result);
+        return $members;
+    }
+
+    /**
+     *
+     * @param int $user_id
+     */
+    function removeUserFromGroup($user_id, $group_id){
+        $result = $this->query('SELECT id FROM user_in_group WHERE user_id=' . $user_id . 
+                    ' AND group_id=' . $group_id);
+        $id = $this->fetchArray($results)[0];
+        deleteEntry($id, 'user_in_group');
+    }
+
+    /**
+     *
+     * @param int $user_id 
+     * @param int $group_id
+     */
+    function addUserToGroup($user_id, $group_id){
+        $group_user_pair = array('user_id' => $user_id, 'group_id' => $group_id);
+        addEntry($group_user_pair, 'user_in_group');
     }
 
 
