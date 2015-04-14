@@ -263,7 +263,6 @@ class MyDB extends SQLLib {
             return $this->fetchArray($result)[0];
         }
     }
-ƒ
     /**
      *
      * @param string $name as user name
@@ -272,9 +271,9 @@ class MyDB extends SQLLib {
      */
     function createUser($name, $classes) {
         // maybe hardcode the max number of classes? can we make a query-able cell?
-        // TODO: make all data into an array + fill in what isn't there then feed it to createIndex
-        $to_add = array('username' => $name, 'class' => $classes, 'rating' => 0);
-        addEntry($to_add, 'users');
+        $to_add = array('username' => $name, 'class' => $classes, 
+                        'rating' => 0, 'num_ratings' => 0);
+        $this->addEntry($to_add, 'users');
     }
 
     /**
@@ -285,15 +284,13 @@ class MyDB extends SQLLib {
      * @param string $filter_settings as class to filter by
      */
     function createGroup($name, $user_id, $description, $filterSettings){
-        // TODO: let it filter by other things 
         $to_add = array('groupname' => $name, 'description' => $description, 
                             'class' => $filterSettings);
-        addEntry($to_add, 'groups');
+        $this->addEntry($to_add, 'groups');
 
         // get group ID so we can add group to user_in_group
-        $group_id = getGroupId($name);
-        $group_user_pair = array('user_id' => $user_id, 'group_id' => $group_id);
-        addEntry($group_user_pair, 'user_in_group');
+        $group_id = $this->getGroupId($name);
+        $this->addUserToGroup($user_id, $group_id);
     }
 
     /**
@@ -302,9 +299,13 @@ class MyDB extends SQLLib {
      *
      */
     function removeUser($user_id){
-        // TODO: check that the user is in the table, check if its in any groups
-        // leave this for now, we can just use drop table
-
+        $this->deleteEntry($user_id, $tblName);
+    
+        // remove the user from all groups they are in
+        $groups = $this->getUserGroups($user_id);
+        foreach ($group as $group_user_pair_id) {
+            $this->deleteEntry($group_user_pair_id, 'user_in_group');
+        }
     }
 
     /** 
@@ -312,12 +313,18 @@ class MyDB extends SQLLib {
      * @param string $groupname name of group to remove
      */
     function removeGroup($group_id){
-        // TODO: check that the group is in the table, remove if we can
         // if users hold group, then we will need to remove them from the group
-        // make sure to remove everything from user in group
 
-        deleteEntry($group_id, 'groups');
-        
+        // remove the group from the group table
+        $this->deleteEntry($group_id, 'groups');
+
+        // remove all instances of the group form the associative table
+        $result = $this->query('SELECT id FROM user_in_group where group_id=' . $group_id);
+        $to_remove = $this->fetchArray($results)[0];
+        foreach ($to_remove as $id_to_remove) {
+            $this->deleteEntry($id_to_remove, 'user_in_group');
+        }
+
     }
 
     /**
@@ -337,7 +344,30 @@ class MyDB extends SQLLib {
      * @param int $rating   
      */
     function setUserRating($user_id, $rating){
-        changeCellWithRow('users', 'rating', $user_id, $rating);
+        $this->changeCellWithRow('users', 'rating', $user_id, $rating);
+    }
+
+    /**
+     *
+     * @param int $user_id 
+     * @param int $rating new review of user to be factored in
+     */
+    function updateUserRating($user_id, $rating){
+        // adds a new rating to a users rating
+
+        // get the current average review and how many reviews there are total
+        $result = $this->query('SELECT num_ratings FROM users WHERE user_id=' . $user_id);
+        $num_reviews = $this->fetchArray($result)[0];
+        $current_rating = $this->getUserRating($user_id);
+
+        // find the new average value
+        $numerator = ($current_rating * $num_reviews) + $rating;
+        $denominator = $num_reviews + 1; // won't div by zero
+        $new_rating = $numerator / $denominator;
+
+        // update the tables
+        $this->setUserRating($user_id, $new_rating);
+        $this->changeCellWithRow('user', 'num_ratings', $user_id, $denominator);
     }
 
     /**
@@ -347,8 +377,20 @@ class MyDB extends SQLLib {
      */
     function getUserClasses($user_id){
         $result = $this->query('SELECT classes FROM users WHERE id=' . $user_id);
-        $classes = $this->fetchArray($results)[0];
+        $classes = $this->fetchArray($result)[0];
         return $classes;
+    }
+
+    /**
+     *
+     * @param int $group_id
+     * @param string the class the group was made for
+     */
+    function getGroupClass($group_id) {
+        // get the class the group was made for
+        $result = $this->query('SELECT class FROM groups WHERE id=' . $group_id);
+        $class = $this->fetchArray($result)[0];
+        return $class;
     }
 
     /**
@@ -358,10 +400,20 @@ class MyDB extends SQLLib {
      */
     function getGroupMembers($group_id){
         // get this info from the UserInGroup table
-        // do we need to create another get function to get user
         $result = $this->query('SELECT user_id FROM user_in_group WHERE group_id=' . $group_id);
         $members = $this->fetchArray($result);
         return $members;
+    }
+
+    /**
+     *
+     * @param int user_id
+     * @return int array with the id of each group/user pair in user_in_group
+     */
+    function getUserGroups($user_id){
+        $result = $this->query('SELECT id FROM user_in_group WHERE user_id=' . $user_id);
+        $to_return = $this->fetchArray($result);
+        return $to_return;
     }
 
     /**
@@ -371,8 +423,8 @@ class MyDB extends SQLLib {
     function removeUserFromGroup($user_id, $group_id){
         $result = $this->query('SELECT id FROM user_in_group WHERE user_id=' . $user_id . 
                     ' AND group_id=' . $group_id);
-        $id = $this->fetchArray($results)[0];
-        deleteEntry($id, 'user_in_group');
+        $id = $this->fetchArray($result)[0];
+        $this->deleteEntry($id, 'user_in_group');
     }
 
     /**
@@ -382,7 +434,7 @@ class MyDB extends SQLLib {
      */
     function addUserToGroup($user_id, $group_id){
         $group_user_pair = array('user_id' => $user_id, 'group_id' => $group_id);
-        addEntry($group_user_pair, 'user_in_group');
+        $this->addEntry($group_user_pair, 'user_in_group');
     }
 
 
