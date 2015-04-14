@@ -6,21 +6,21 @@
         private $connection;
 
         function __construct($user="master"){
-            $properties=  parse_ini_file("chorus.ini");
+            $properties=  parse_ini_file("studyr.ini");
 
             $this->connection=new mysqli(
-                    $properties["chorus.database.mysql.hostname"], 
-                    $properties["chorus.database.mysql.user." . $user],
-                    $properties["chorus.database.mysql.password." . $user],
-                    $properties["chorus.database.mysql.db"],
-                    $properties["chorus.database.mysql.port"]
+                    $properties["studyr.database.mysql.hostname"], 
+                    $properties["studyr.database.mysql.user." . $user],
+                    $properties["studyr.database.mysql.password." . $user],
+                    $properties["studyr.database.mysql.db"],
+                    $properties["studyr.database.mysql.port"]
             );
             if($this->connection->connect_errno){
                 echo json_encode(["Database Connectivity Error: " . $this->connection->connect_errno]);
                 die;
             }
 
-            $my_schema = $properties["chorus.database.mysql.schema"];
+            $my_schema = $properties["studyr.database.mysql.schema"];
             $this->connection->select_db($my_schema);
             if($this->connection->connect_errno){
                 echo json_encode(["Database Connectivity Error: " . $this->connection->connect_errno]);
