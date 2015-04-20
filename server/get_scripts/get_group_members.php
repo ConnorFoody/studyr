@@ -6,7 +6,6 @@
 		echo json_encode(["ERROR: incorrect parameters]");
 	}
 	else{
-		$member_ids = $db->getGroupMembers($db->getGroupname($_GET['group']));
-		return $db->listOfIdsToUsers($member_ids)
-	}
+		$member_ids = $db->getGroupMembers($_GET['group']);
+		echo json_encode($member_ids)
 ?>

@@ -6,7 +6,7 @@
 		echo json_encode(["ERROR: incorrect parameters]");
 	}
 	else{
-		$classes = $db->getUserClasses($db->getUserID($_GET['user']));
+		$classes = $db->getUserClasses($_GET['user']);
 		echo json_encode($classes);
 	}
 ?>

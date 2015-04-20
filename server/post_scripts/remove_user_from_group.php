@@ -7,7 +7,6 @@
         echo json_encode(['ERROR: incorrect parameters']);
     }
     else{
-        $db->addUserToGroup($_GET['user'], $_GET['group']);
-        // return value?
+    	$db->removeUserFromGroup($_GET['user'], $_GET['group']);
     }
 ?>
