@@ -4,7 +4,7 @@ include_once 'dblib.php'
 // script to set up the tables
 
 // create the database
-$db = new MyDB('studyrmaster');
+$db = new StudyrDB('studyrmaster');
 
 // TODO: double check with john to make sure I set up the ini correctly
 
