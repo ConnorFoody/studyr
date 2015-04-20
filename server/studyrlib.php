@@ -78,6 +78,7 @@ class StudyrDB extends MyDB {
             return $this->fetchArray($result)[0];
         }
     }
+    
     /**
      *
      * @param string $name as user name
@@ -265,7 +266,32 @@ class StudyrDB extends MyDB {
     /**
      *
      * @param int array $group_ids
+     * @param string array list of groups
      */
+    function listOfIdsToGroups($group_ids){
+        $group_names[];
+        $i = 0;
+        foreach ($group_ids as $id) {
+            $group_names[i] = $this->getGroupname($id);
+            $i = $i + 1;
+        }
+        return $group_names;
+    }
+
+    /**
+     *
+     * @param int array $user_ids
+     * @param string array list of users
+     */
+    function listOfIdsToUsers($user_ids){
+        $user_names[];
+        $i = 0;
+        foreach ($user_ids as $id) {
+            $user_names[i] = $this->getUsername($id);
+            $i = $i + 1;
+        }
+        return $user_names;
+    }
 
 }
 ?>
