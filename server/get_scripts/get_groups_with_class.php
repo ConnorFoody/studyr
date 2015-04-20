@@ -1,7 +1,7 @@
 <?php
-	include 'studyrlib.php';
+	include '../studyrlib.php';
 
-	$db = new StudyrLib();
+	$db = new Studyr();
 	if(!$_GET['class']){
 		echo json_encode(["ERROR: incorrect parameters]");
 	}
