@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D2CD3EB1AEC77EC00587419 /* DraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2CD3E41AEC77EC00587419 /* DraggableView.m */; };
+		7D2CD3EC1AEC77EC00587419 /* DraggableViewBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2CD3E61AEC77EC00587419 /* DraggableViewBackground.m */; };
+		7D2CD3ED1AEC77EC00587419 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2CD3E81AEC77EC00587419 /* OverlayView.m */; };
+		7D2CD3EE1AEC77EC00587419 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2CD3EA1AEC77EC00587419 /* ViewController.m */; };
+		7D2CD3F01AEC79E400587419 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2CD3EF1AEC79E400587419 /* AppDelegate.m */; };
 		7D6C099F1A9D2325009B8A67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C099E1A9D2325009B8A67 /* main.m */; };
-		7D6C09A21A9D2325009B8A67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C09A11A9D2325009B8A67 /* AppDelegate.m */; };
-		7D6C09A51A9D2325009B8A67 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C09A41A9D2325009B8A67 /* MasterViewController.m */; };
-		7D6C09A81A9D2325009B8A67 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C09A71A9D2325009B8A67 /* DetailViewController.m */; };
 		7D6C09AB1A9D2325009B8A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C09A91A9D2325009B8A67 /* Main.storyboard */; };
 		7D6C09AD1A9D2325009B8A67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C09AC1A9D2325009B8A67 /* Images.xcassets */; };
 		7D6C09B01A9D2325009B8A67 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C09AE1A9D2325009B8A67 /* LaunchScreen.xib */; };
@@ -32,15 +34,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D2CD3E31AEC77EC00587419 /* DraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DraggableView.h; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/DraggableView.h"; sourceTree = "<group>"; };
+		7D2CD3E41AEC77EC00587419 /* DraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DraggableView.m; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/DraggableView.m"; sourceTree = "<group>"; };
+		7D2CD3E51AEC77EC00587419 /* DraggableViewBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DraggableViewBackground.h; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/DraggableViewBackground.h"; sourceTree = "<group>"; };
+		7D2CD3E61AEC77EC00587419 /* DraggableViewBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DraggableViewBackground.m; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/DraggableViewBackground.m"; sourceTree = "<group>"; };
+		7D2CD3E71AEC77EC00587419 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayView.h; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/OverlayView.h"; sourceTree = "<group>"; };
+		7D2CD3E81AEC77EC00587419 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayView.m; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/OverlayView.m"; sourceTree = "<group>"; };
+		7D2CD3E91AEC77EC00587419 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/ViewController.h"; sourceTree = "<group>"; };
+		7D2CD3EA1AEC77EC00587419 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/ViewController.m"; sourceTree = "<group>"; };
+		7D2CD3EF1AEC79E400587419 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/AppDelegate.m"; sourceTree = "<group>"; };
+		7D2CD3F11AEC7A2F00587419 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../../../../Downloads/TinderSimpleSwipeCards-master/testing swiping/AppDelegate.h"; sourceTree = "<group>"; };
 		7D6C09991A9D2325009B8A67 /* Studyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6C099D1A9D2325009B8A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D6C099E1A9D2325009B8A67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7D6C09A01A9D2325009B8A67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7D6C09A11A9D2325009B8A67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7D6C09A31A9D2325009B8A67 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		7D6C09A41A9D2325009B8A67 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		7D6C09A61A9D2325009B8A67 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		7D6C09A71A9D2325009B8A67 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7D6C09AA1A9D2325009B8A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D6C09AC1A9D2325009B8A67 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D6C09AF1A9D2325009B8A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -92,12 +98,8 @@
 		7D6C099B1A9D2325009B8A67 /* Studyr */ = {
 			isa = PBXGroup;
 			children = (
-				7D6C09A01A9D2325009B8A67 /* AppDelegate.h */,
-				7D6C09A11A9D2325009B8A67 /* AppDelegate.m */,
-				7D6C09A31A9D2325009B8A67 /* MasterViewController.h */,
-				7D6C09A41A9D2325009B8A67 /* MasterViewController.m */,
-				7D6C09A61A9D2325009B8A67 /* DetailViewController.h */,
-				7D6C09A71A9D2325009B8A67 /* DetailViewController.m */,
+				7D2CD3EF1AEC79E400587419 /* AppDelegate.m */,
+				7D2CD3F11AEC7A2F00587419 /* AppDelegate.h */,
 				7D6C09A91A9D2325009B8A67 /* Main.storyboard */,
 				7D6C09AC1A9D2325009B8A67 /* Images.xcassets */,
 				7D6C09AE1A9D2325009B8A67 /* LaunchScreen.xib */,
@@ -106,6 +108,14 @@
 				8C16D4141AA53D5300E2B89E /* User.h */,
 				8C16D4151AA544AB00E2B89E /* Group.m */,
 				8C16D4181AA544B800E2B89E /* Group.h */,
+				7D2CD3E31AEC77EC00587419 /* DraggableView.h */,
+				7D2CD3E41AEC77EC00587419 /* DraggableView.m */,
+				7D2CD3E51AEC77EC00587419 /* DraggableViewBackground.h */,
+				7D2CD3E61AEC77EC00587419 /* DraggableViewBackground.m */,
+				7D2CD3E71AEC77EC00587419 /* OverlayView.h */,
+				7D2CD3E81AEC77EC00587419 /* OverlayView.m */,
+				7D2CD3E91AEC77EC00587419 /* ViewController.h */,
+				7D2CD3EA1AEC77EC00587419 /* ViewController.m */,
 			);
 			path = Studyr;
 			sourceTree = "<group>";
@@ -236,12 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D2CD3F01AEC79E400587419 /* AppDelegate.m in Sources */,
+				7D2CD3EC1AEC77EC00587419 /* DraggableViewBackground.m in Sources */,
+				7D2CD3EB1AEC77EC00587419 /* DraggableView.m in Sources */,
 				8C16D4121AA53CB900E2B89E /* User.m in Sources */,
-				7D6C09A21A9D2325009B8A67 /* AppDelegate.m in Sources */,
-				7D6C09A51A9D2325009B8A67 /* MasterViewController.m in Sources */,
+				7D2CD3EE1AEC77EC00587419 /* ViewController.m in Sources */,
 				8C16D4161AA544AB00E2B89E /* Group.m in Sources */,
 				7D6C099F1A9D2325009B8A67 /* main.m in Sources */,
-				7D6C09A81A9D2325009B8A67 /* DetailViewController.m in Sources */,
+				7D2CD3ED1AEC77EC00587419 /* OverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
