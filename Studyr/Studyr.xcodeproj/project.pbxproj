@@ -10,6 +10,9 @@
 		7DA2C5371AED671E00506476 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2C5341AED671E00506476 /* Group.m */; };
 		7DA2C5381AED671E00506476 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2C5361AED671E00506476 /* User.m */; };
 		8C9CFD991AF00DEF00FC690A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C9CFD981AF00DEF00FC690A /* InfoPlist.strings */; };
+		8CDA90D81AF022BE00B69B0B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CDA90D51AF022BE00B69B0B /* Info.plist */; };
+		8CDA90D91AF022BE00B69B0B /* StudyrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA90D61AF022BE00B69B0B /* StudyrTests.m */; };
+		8CDA90DA1AF022BE00B69B0B /* testing_swipingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA90D71AF022BE00B69B0B /* testing_swipingTests.m */; };
 		99B7AE99192D50D500C1B49C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B7AE98192D50D500C1B49C /* Foundation.framework */; };
 		99B7AE9B192D50D500C1B49C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B7AE9A192D50D500C1B49C /* CoreGraphics.framework */; };
 		99B7AE9D192D50D500C1B49C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B7AE9C192D50D500C1B49C /* UIKit.framework */; };
@@ -42,6 +45,9 @@
 		7DA2C5351AED671E00506476 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		7DA2C5361AED671E00506476 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		8C9CFD981AF00DEF00FC690A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		8CDA90D51AF022BE00B69B0B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CDA90D61AF022BE00B69B0B /* StudyrTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudyrTests.m; sourceTree = "<group>"; };
+		8CDA90D71AF022BE00B69B0B /* testing_swipingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testing_swipingTests.m; sourceTree = "<group>"; };
 		99B7AE95192D50D500C1B49C /* Studyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B7AE98192D50D500C1B49C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99B7AE9A192D50D500C1B49C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,9 +95,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CDA90D41AF022BE00B69B0B /* StudyrTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CDA90D51AF022BE00B69B0B /* Info.plist */,
+				8CDA90D61AF022BE00B69B0B /* StudyrTests.m */,
+				8CDA90D71AF022BE00B69B0B /* testing_swipingTests.m */,
+			);
+			path = StudyrTests;
+			sourceTree = "<group>";
+		};
 		99B7AE8C192D50D500C1B49C = {
 			isa = PBXGroup;
 			children = (
+				8CDA90D41AF022BE00B69B0B /* StudyrTests */,
 				99B7AE9E192D50D500C1B49C /* StudyrApp */,
 				99B7AE97192D50D500C1B49C /* Frameworks */,
 				99B7AE96192D50D500C1B49C /* Products */,
@@ -240,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDA90D81AF022BE00B69B0B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDA90DA1AF022BE00B69B0B /* testing_swipingTests.m in Sources */,
+				8CDA90D91AF022BE00B69B0B /* StudyrTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
