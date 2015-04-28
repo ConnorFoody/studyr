@@ -19,8 +19,8 @@
 // some users have photos, blurbs
 
 - (id) init : (int) id_; // everything needs and ID
-- (id) initBasic: (int) id_ :(NSString*) name;
-- (id) initWithAll: (int)id_ :(NSString*)name :(NSArray*)classes :(NSString*)major :(int) rating;
+- (id) initWithId: (int) id_ name:(NSString*) name;
+- (id) initWithId: (int)id_ name:(NSString*)name classes:(NSArray*)classes major:(NSString*)major rating:(int) rating;
 
 // getters
 - (NSString*) getName;

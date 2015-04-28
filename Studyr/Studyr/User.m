@@ -18,12 +18,12 @@
 }
 
 - (id) init: (int) id_ {
-    return [self initBasic:id_ :@""];
+    return [self initWithId:id_ name:@""];
 }
-- (id) initBasic: (int) id_ : (NSString *)name{
-    return [self initWithAll:id_: name :nil : @"" : 0];
+- (id) initWithId: (int) id_ name: (NSString *)name{
+    return [self initWithId:id_ name: name classes:nil major: @"" rating: 0];
 }
-- (id) initWithAll: (int) id_ : (NSString *)name :(NSArray *)classes :(NSString *)major :(int)rating{
+- (id) initWithId: (int) id_ name: (NSString *)name classes:(NSArray *)classes major:(NSString *)major rating:(int)rating{
     self = [super init];
     if(self){
         m_name = [name copy];
@@ -63,10 +63,10 @@
         classes = [ classes stringByAppendingFormat:@"%@ ", m_classes[i]];
     }
     return [NSString stringWithFormat:@"USER: name(%@) classes(%@) major(%@) rating(%d)",
-                                                            m_name,
-                                                            classes,
-                                                            m_major,
-                                                            m_rating];
+            m_name,
+            classes,
+            m_major,
+            m_rating];
 }
 
 - (int) getID{

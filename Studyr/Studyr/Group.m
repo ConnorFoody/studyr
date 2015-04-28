@@ -17,17 +17,17 @@
 }
 
 - (id) init : (int) id_{
-    return [self initBasic: id_ : @"" :nil];
+    return [self initWithId: id_ name: @"" user:nil];
 }
 
-- (id) initBasic: (int) id_ :(NSString *)name :(User *)user{
+- (id) initWithId: (int) id_ name:(NSString *)name user:(User *)user{
     if(user == nil){
-        return [self initFull: id_ :name:nil:@""];
+        return [self initWithId: id_ name:name members:nil description:@""];
     }
-    return [self initFull: id_ : name :[NSArray arrayWithObject:user] :@""];
+    return [self initWithId: id_ name: name members:[NSArray arrayWithObject:user] description:@""];
 }
 
-- (id) initFull: (int) id_ :(NSString *)name :(NSArray *)members :(NSString *)description{
+- (id) initWithId: (int) id_ name:(NSString *)name members:(NSArray *)members description:(NSString *)description{
     self = [super init];
     if(self){
         m_name = [name copy];
@@ -73,10 +73,10 @@
         members = [members stringByAppendingFormat:@"%@ ", tmp.getName];
     }
     return [NSString stringWithFormat:@"GROUP: name(%@) description(%@) members(%@) rating(%d)",
-                                                                                        m_name,
-                                                                                        m_description,
-                                                                                        members,
-                                                                                        self.getRating];
+            m_name,
+            m_description,
+            members,
+            self.getRating];
 }
 
 - (int) getID{

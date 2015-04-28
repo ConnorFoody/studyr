@@ -10,6 +10,7 @@
 #define Studyr_Group_h
 #include "User.h"
 
+
 @interface Group : NSObject{
     
 }
@@ -17,8 +18,8 @@
 //@property (copy) NSString* model;
 
 - (id) init: (int) id_;
-- (id) initBasic: (int)id_ : (NSString*)name : (User*)user;
-- (id) initFull: (int)id_ :(NSString*)name : (NSArray*)members : (NSString*) description;
+- (id) initWithId: (int)id_ name: (NSString*)name user: (User*)user;
+- (id) initWithId: (int)id_ name:(NSString*)name members: (NSArray*)members description: (NSString*) description;
 
 - (NSString*) getName;
 - (NSArray*) getMembers;
