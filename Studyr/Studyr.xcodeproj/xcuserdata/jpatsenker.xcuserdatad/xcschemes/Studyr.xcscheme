@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D6C09981A9D2325009B8A67"
+               BlueprintIdentifier = "99B7AE94192D50D500C1B49C"
                BuildableName = "Studyr.app"
                BlueprintName = "Studyr"
-               ReferencedContainer = "container:Studyr.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D6C09B41A9D2325009B8A67"
-               BuildableName = "StudyrTests.xctest"
-               BlueprintName = "StudyrTests"
                ReferencedContainer = "container:Studyr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,21 +28,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D6C09B41A9D2325009B8A67"
-               BuildableName = "StudyrTests.xctest"
-               BlueprintName = "StudyrTests"
-               ReferencedContainer = "container:Studyr.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D6C09981A9D2325009B8A67"
+            BlueprintIdentifier = "99B7AE94192D50D500C1B49C"
             BuildableName = "Studyr.app"
             BlueprintName = "Studyr"
             ReferencedContainer = "container:Studyr.xcodeproj">
@@ -75,7 +51,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D6C09981A9D2325009B8A67"
+            BlueprintIdentifier = "99B7AE94192D50D500C1B49C"
             BuildableName = "Studyr.app"
             BlueprintName = "Studyr"
             ReferencedContainer = "container:Studyr.xcodeproj">
@@ -93,7 +69,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D6C09981A9D2325009B8A67"
+            BlueprintIdentifier = "99B7AE94192D50D500C1B49C"
             BuildableName = "Studyr.app"
             BlueprintName = "Studyr"
             ReferencedContainer = "container:Studyr.xcodeproj">

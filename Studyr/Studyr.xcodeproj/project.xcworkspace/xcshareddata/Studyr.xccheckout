@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>7B716FA1-621C-43D9-94AA-E8ED467A63D6</string>
+	<string>5682F811-CEB9-4825-876A-22E0980109C1</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Studyr</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -18,16 +18,24 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5D27A08478F3DA243643A2535E4D7BBFB585AD62</key>
-		<string>../../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://github.com/ConnorFoody/studyr.git</string>
+	<string>https://github.com/ConnorFoody/studyr.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>5D27A08478F3DA243643A2535E4D7BBFB585AD62</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5D27A08478F3DA243643A2535E4D7BBFB585AD62</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
