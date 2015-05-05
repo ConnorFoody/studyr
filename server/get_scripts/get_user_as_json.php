@@ -2,10 +2,11 @@
 	include '../studyrlib.php';
 
 	$db = new Studyr();
-	if(!$_GET['group']){
+	if(!$_GET['user']){
 		echo json_encode(["ERROR: incorrect parameters]");
 	}
 	else{
-		$member_ids = $db->getGroupMembers($_GET['group']);
-		echo json_encode($member_ids)
+		$user = $db->getUserAsJson($_GET['user']);
+		echo json_encode($user);
+	}
 ?>

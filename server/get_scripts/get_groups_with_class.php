@@ -7,6 +7,11 @@
 	}
 	else{
 		$group_ids = $db->getGroupsWithClass($_GET['class']);
-		echo json_encode($group_ids);
+		$groups[];
+		$i = 0; 
+		foreach($group_ids as $group_id){
+			$groups[i] = $db->getGroupAsJson($group_id);
+		}
+		echo json_encode($groups);
 	}
 ?>

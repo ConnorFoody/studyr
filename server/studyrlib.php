@@ -3,6 +3,7 @@
 include_once 'dblib.php';
 
 // library holding all the Studyr related functions
+// TODO: add user/group --> json and json --> user/group
 class Studyr {
 
     private $myDB;
@@ -295,5 +296,36 @@ class Studyr {
         return $user_names;
     }
 
+    /**
+     * returns whole user object to make handling on the other size easier
+     * @param int $user_id
+     * @return string array all the data for that user
+     */
+    function getUserAsJson($user_id){
+        $result = $this->$myDB->query('SELECT * FROM users WHERE id=' . $user_id);
+        return $this->$myDB->fetchArray($result);
+    }
+
+    /**
+     * returns whole group object to make handling on the other side easier
+     * @param int $group_id
+     * @return string array all the data for that group
+     */
+    function getGroupAsJson($group_id){
+        $result = $this->$myDB->query('SELECT * FROM groups WHERE id=' . $group_id);
+        $result = $this->$myDB->fetchArray($result);
+        // get the group members, put them in an array and add the 
+        // array onto the gorup data
+        $users_in_group = $this->getGroupMembers($group_id);
+        $user_jsons[];
+        $i = 0;
+        foreach($users_in_group as $user_id){
+            $user_jsons[i] = $this->getUserAsJson($user_id);
+            $i = $i + 1
+        }
+        // add it to the end
+        $result[] = $user_jsons;
+        return $result;
+    }
 }
 ?>
