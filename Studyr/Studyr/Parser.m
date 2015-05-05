@@ -14,37 +14,85 @@
     
 }
 
-- (User*) parseDictionaryToUser: (id) reply{
+// TODO: write unit test to check parsing correctly and correct errors
+
+- (User*) parseDictionaryToUser: (id) reply error:(NSError**) error{
     if([reply isKindOfClass:[NSDictionary class]]){
-        return [self buildUserFromDictionary:reply];
+        // just pass the input
+        User* tmp = [self buildUserFromDictionary:reply error:error];
+        // print the error here so we can see it going down
+        if(error != nil){
+            NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+            return nil;
+        }
+        return tmp;
     }
-    // TODO: actual error handling
-    return [[User alloc] init:-1];
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected dictionary" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 10 userInfo:errorInfo];
+        NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+    }
+    return nil;
 }
-- (Group*) parseDictionaryToGroup: (id) reply{
+- (Group*) parseDictionaryToGroup: (id) reply error:(NSError**) error{
     if([reply isKindOfClass:[NSDictionary class]]){
-        return [self buildGroupFromDictionary:reply];
+        // just pass the input down the chain for now
+        Group* tmp = [self buildGroupFromDictionary:reply error:error];
+        // print the error here so we can see it going down
+        if(error != nil){
+            NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+            return nil;
+        }
+        return tmp;
     }
-    // TODO: actual error handling
-    return [[Group alloc] init:-1];
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected dictionary" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 101 userInfo:errorInfo];
+        NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+    }
+    return nil;
 }
-- (NSArray*) parseDictionaryToGroupArray:(id)reply{
+- (NSArray*) parseArrayToGroupArray:(id)reply error:(NSError**) error{
     if([reply isKindOfClass:[NSArray class]]){
         NSMutableArray* groups = [NSMutableArray arrayWithObject:nil];
         // go through and add each group to the array one by one
         for(int i = 0; i < [reply count]; i++){
-            // TODO: actual error handling
             if([reply[i] isKindOfClass:[NSDictionary class]]){
-                [groups addObject:[self buildUserFromDictionary:reply[i]]];
+                Group* tmp = [self buildGroupFromDictionary:reply[i] error:error];
+                
+                // print the error here so we can see it going down
+                if(error != nil){
+                    NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+                    return nil;
+                }
+                // if no error, add object
+                [groups addObject: tmp];
+            }
+            else{
+                NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+                [errorInfo setValue:@"Incorrect type, expected array of dictionaries" forKey:NSLocalizedDescriptionKey];
+                *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 102 userInfo:errorInfo];
+                NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+                return nil;
             }
         }
+        // if we go through alright, return
         return [groups copy];
     }
-    return [NSArray arrayWithObject:nil];
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected array" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 103 userInfo:errorInfo];
+        NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+    }
+    return nil;
 }
 
 
-- (User*) buildUserFromDictionary:(NSDictionary *)reply {
+- (User*) buildUserFromDictionary:(NSDictionary *)reply error:(NSError**) error {
+    // parser functions make sure these inputs are valid
     
     User *user;
     NSNumber* user_id;
@@ -52,18 +100,45 @@
     NSString* user_class;
     NSString* user_name;
     
-    // TODO: handle type errors
     if( [[reply objectForKey:@"id"] isKindOfClass: [NSNumber class]]){
         user_id = [reply objectForKey:@"id"];
     }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSNumber" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 104 userInfo:errorInfo];
+    }
+    
     if( [[reply objectForKey:@"rating"] isKindOfClass: [NSNumber class]]){
         user_rating = [reply objectForKey:@"rating"];
     }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSNumber" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 105 userInfo:errorInfo];
+    }
+    
     if( [[reply objectForKey:@"class"] isKindOfClass: [NSString class]]){
         user_class = [reply objectForKey:@"classes"];
     }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSString" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 106 userInfo:errorInfo];
+    }
+    
     if( [[reply objectForKey:@"username"] isKindOfClass: [NSString class]]){
         user_name = [reply objectForKey:@"username"];
+    }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSString" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 107 userInfo:errorInfo];
+    }
+    
+    if(error != nil){
+        NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+        return nil;
     }
     
     user = [[User alloc] initWithId: [user_id integerValue] name: user_name classes: [[NSArray alloc] initWithObjects: user_class, nil] major: @"" rating: [user_rating integerValue]];
@@ -71,7 +146,8 @@
     return user;
 };
 
-- (Group*) buildGroupFromDictionary:(NSDictionary *)reply {
+- (Group*) buildGroupFromDictionary:(NSDictionary *)reply error:(NSError**) error {
+    // parser functions make sure these inputs are valid
     
     Group* group;
     
@@ -80,25 +156,61 @@
     NSString* group_description;
     NSNumber* group_id;
     
-    // TODO: handle type errors
     if([[reply objectForKey:@"groupname"] isKindOfClass: [NSString class]]){
         group_name = [reply objectForKey:@"groupname"];
     }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSString" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 108 userInfo:errorInfo];
+    }
+    
     if([[reply objectForKey:@"members"] isKindOfClass: [NSArray class]]){
         group_members = [reply objectForKey:@"members"];
     }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSArray" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 109 userInfo:errorInfo];
+    }
+    
     if([[reply objectForKey:@"description"] isKindOfClass: [NSString class]]){
         group_description = [reply objectForKey:@"description"];
     }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSString" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 110 userInfo:errorInfo];
+    }
+    
     if([[reply objectForKey:@"id"] isKindOfClass: [NSNumber class]]){
         group_id = [reply objectForKey:@"id"];
+    }
+    else{
+        NSMutableDictionary* errorInfo = [NSMutableDictionary dictionary];
+        [errorInfo setValue:@"Incorrect type, expected NSNumber" forKey:NSLocalizedDescriptionKey];
+        *error = [NSError errorWithDomain:@"com.studyr.studyr" code: 110 userInfo:errorInfo];
+    }
+    
+    // is this an OK way to treat the error?
+    // if there are multiple errors, this would only return the last one
+    // returning the first error has the same issue though...
+    if(error != nil){
+        NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+        return nil;
     }
     
     group = [[Group alloc] initWithId:[group_id integerValue] name:group_name members: nil description: group_description];
     
-    // build users from json and insert one by one
+    // build users from json dictionaries and insert one by one
     for(int i = 0; i < [group_members count]; i++){
-        User* tmp = [self buildUserFromDictionary:group_members[i]];
+        User* tmp = [self buildUserFromDictionary:group_members[i] error:error];
+        if(tmp == nil){
+            // print error here so we can see it's path going down
+            NSLog(@"%@:%s Error parsing input: %@", [self class], _cmd, [(*error) localizedDescription]);
+            return nil;
+        }
+        // if no type error, add group member
         [group addMember:tmp];
     }
     return group;

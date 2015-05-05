@@ -16,14 +16,16 @@
     // no instance vars
 }
 
-
-// parser functions, filler for now
-- (User*) parseDictionaryToUser: (id) reply;
-- (Group*) parseDictionaryToGroup: (id) reply;
-- (NSArray*) parseDictionaryToGroupArray: (id) reply;
+// parse json replies to output types
+// set error = nil before passing it in
+// returns nil if an issue occured
+- (User*) parseDictionaryToUser: (id) reply error:(NSError**) error;
+- (Group*) parseDictionaryToGroup: (id) reply error:(NSError**) error;
+- (NSArray*) parseArrayToGroupArray: (id) reply error:(NSError**) error;
 
 // delegate funcitons to build user object from dictionaries
-- (User*) buildUserFromDictionary: (NSDictionary*) reply;
-- (Group*) buildGroupFromDictionary: (NSDictionary*) reply;
+// called by the parse functions
+- (User*) buildUserFromDictionary: (NSDictionary*) reply error:(NSError**) error;
+- (Group*) buildGroupFromDictionary: (NSDictionary*) reply error:(NSError**) error;
 @end
 #endif
