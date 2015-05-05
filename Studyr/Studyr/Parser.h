@@ -16,6 +16,7 @@
     // no instance vars
 }
 
+- (id) init;
 // parse json replies to output types
 // set error = nil before passing it in
 // returns nil if an issue occured

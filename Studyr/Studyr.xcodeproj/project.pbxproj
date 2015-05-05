@@ -10,6 +10,7 @@
 		7DA2C5371AED671E00506476 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2C5341AED671E00506476 /* Group.m */; };
 		7DA2C5381AED671E00506476 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2C5361AED671E00506476 /* User.m */; };
 		8C4DC2611AF81691007F3DF5 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4DC2601AF81691007F3DF5 /* Parser.m */; };
+		8C4DC2651AF95024007F3DF5 /* TestParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4DC2641AF95024007F3DF5 /* TestParser.m */; };
 		8C9CFD991AF00DEF00FC690A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C9CFD981AF00DEF00FC690A /* InfoPlist.strings */; };
 		8CDA90D81AF022BE00B69B0B /* StudyrTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CDA90D51AF022BE00B69B0B /* StudyrTests-Info.plist */; };
 		8CDA90D91AF022BE00B69B0B /* StudyrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA90D61AF022BE00B69B0B /* StudyrTests.m */; };
@@ -47,6 +48,7 @@
 		7DA2C5361AED671E00506476 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		8C4DC25F1AF8164D007F3DF5 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		8C4DC2601AF81691007F3DF5 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		8C4DC2641AF95024007F3DF5 /* TestParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestParser.m; sourceTree = "<group>"; };
 		8C9CFD981AF00DEF00FC690A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		8CDA90D51AF022BE00B69B0B /* StudyrTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "StudyrTests-Info.plist"; sourceTree = "<group>"; };
 		8CDA90D61AF022BE00B69B0B /* StudyrTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudyrTests.m; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				8CDA90D51AF022BE00B69B0B /* StudyrTests-Info.plist */,
 				8CDA90D61AF022BE00B69B0B /* StudyrTests.m */,
 				8CDA90D71AF022BE00B69B0B /* testing_swipingTests.m */,
+				8C4DC2641AF95024007F3DF5 /* TestParser.m */,
 			);
 			path = StudyrTests;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CDA90DA1AF022BE00B69B0B /* testing_swipingTests.m in Sources */,
+				8C4DC2651AF95024007F3DF5 /* TestParser.m in Sources */,
 				8CDA90D91AF022BE00B69B0B /* StudyrTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
